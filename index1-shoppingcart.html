@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .fp{
+            width: 100%;
+            /* height: 150vh; */
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .text{
+            width: 100%;
+            height: 20vh;
+            /* border-bottom: 1px solid black; */
+            background-color: white;
+            position: relative;
+
+        }
+        .text>h1{
+            /* width: 100%; */
+            font-family: 'Times New Roman', Times, serif;
+            /* background-color: aqua; */
+            font-size: 35px;
+            text-transform: capitalize;
+            padding: 50px 225px;
+            height: 50px;
+        }
+        .text>span{
+            color: #53b5aa;
+            display: flex;
+            /* background-color: aquamarine; */
+            font-size: 35px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            position: absolute;
+            top: 49px;left: 30%;
+            overflow: hidden;
+            height: 41px;
+
+        }
+        .text>span>p{
+            font-size: 18px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            /* background-color: red; */
+            overflow: hidden;
+            width: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .6s;
+           
+            
+        }
+        .mainpage{
+            width: 100%;
+            height: 100vh;
+            background-color: #eee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .mainpage>div{
+            width: 70%;
+            height: 90%;
+            /* border: 1px solid black; */
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            
+            
+        }
+        .mainpage>div>section{
+            width: 100%;
+            height: 33.3333%;
+            /* border: 1px solid red; */
+            position: relative;
+            transition: .4s;
+           
+        }
+        .mainpage>div>section>div{
+            width: 25%;
+            height: 100%;
+            /* border: 1px solid green; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .mainpage>div>section>section{
+            width: 75%;
+            height: 100%;
+            /* background-color: blue; */
+            position: absolute;
+            top: 0;right: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .mainpage>div>section>div>img{
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+
+        }
+        .mainpage>div>section>div::after{
+            content: '';
+            display: block;
+            width: 25%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.442);
+            position: absolute;
+            top: 0;left: 0;
+            opacity: 0;
+            transition: .4s;
+        }
+        
+        .mainpage>div>section>div:hover::after{
+            opacity: 1;
+
+        }
+        .mainpage>div>section>div>span{
+            display: flex;
+            width: 25%;
+            height: 40px;
+            background-color: #53b5aa;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            left: -26%;
+            text-transform: capitalize;
+            z-index: 99;
+            transition: .4s;
+            cursor: pointer;
+            
+        }
+        .mainpage>div>section>div:hover>span{
+            left: 0;
+        }
+        
+ 
+        .fpro>div:nth-of-type(1){
+            width: 90%;
+            height: 60%;
+            /* border: 1px solid black; */
+            margin-top: 15px;
+            background-color: white;
+        }
+        .fpro>div:nth-of-type(1)>h2{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+            color: #53b5aa;
+        }
+        .fpro>div:nth-of-type(1)>p{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+        }
+        .fpro>div:nth-of-type(2){
+            width: 90%;
+            height: 20%;
+            /* border: 1px solid black; */
+            margin-top: 5px;
+            background-color: white;
+            display: flex;
+            position: relative;
+
+        }
+        .fpro>div:nth-of-type(2)>button{
+            width: 60px;
+            height: 100%;
+            background-color: #fcfcfc;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            transition: .4s;
+        }
+        .fpro>div:nth-of-type(2)>button:hover{
+            background-color: #53b5aa;
+        }
+        .fpro>div:nth-of-type(2)>h3{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+        .fpro>div:nth-of-type(2)>h4{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fcfcfc;
+            position: absolute;
+            right: 129px;
+        }
+        .fpro>div:nth-of-type(2)>h2{
+            background-color: #53b5aa;
+            color: white;
+            font-size: 25px;
+            position: absolute;
+            right: 0;
+            width: 18%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .spro>div:nth-of-type(1){
+            width: 90%;
+            height: 60%;
+            /* border: 1px solid black; */
+            margin-top: 15px;
+            background-color: white;
+
+        }
+        .spro>div:nth-of-type(1)>h2{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+            color: #53b5aa;
+        }
+        .spro>div:nth-of-type(1)>p{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+        }
+        .spro>div:nth-of-type(2){
+            width: 90%;
+            height: 20%;
+            /* border: 1px solid black; */
+            margin-top: 5px;
+            background-color: white;
+            display: flex;
+            position: relative;
+
+        }
+        .spro>div:nth-of-type(2)>button{
+            width: 60px;
+            height: 100%;
+            background-color: #fcfcfc;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            transition: .4s;
+        }
+        .spro>div:nth-of-type(2)>button:hover{
+            background-color: #53b5aa;
+        }
+        .spro>div:nth-of-type(2)>h3{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+        .spro>div:nth-of-type(2)>h4{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fcfcfc;
+            position: absolute;
+            right: 129px;
+        }
+        .spro>div:nth-of-type(2)>h2{
+            background-color: #53b5aa;
+            color: white;
+            font-size: 25px;
+            position: absolute;
+            right: 0;
+            width: 18%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tpro>div:nth-of-type(1){
+            width: 90%;
+            height: 60%;
+            /* border: 1px solid black; */
+            margin-top: 15px;
+            background-color: white;
+
+        }
+        .tpro>div:nth-of-type(1)>h2{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+            color: #53b5aa;
+        }
+        .tpro>div:nth-of-type(1)>p{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 20px;
+        }
+        .tpro>div:nth-of-type(2){
+            width: 90%;
+            height: 20%;
+            /* border: 1px solid black; */
+            margin-top: 5px;
+            background-color: white;
+            display: flex;
+            position: relative;
+            
+        }
+        .tpro>div:nth-of-type(2)>button{
+            width: 60px;
+            height: 100%;
+            background-color: #fcfcfc;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            transition: .4s;
+        }
+        .tpro>div:nth-of-type(2)>button:hover{
+            background-color: #53b5aa;
+        }
+        .tpro>div:nth-of-type(2)>h3{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            
+        }
+        .tpro>div:nth-of-type(2)>h4{
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fcfcfc;
+            position: absolute;
+            right: 129px;
+        }
+        .tpro>div:nth-of-type(2)>h2{
+            background-color: #53b5aa;
+            color: white;
+            font-size: 25px;
+            position: absolute;
+            right: 0;
+            width: 18%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer{
+            width: 100%;
+            height: 30vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+       
+        }
+        .footer>div{
+            width: 250px;
+            height: 50px;
+            background-color: #fcfcfc;
+            border-bottom: .5px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #tot{
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: capitalize;
+
+        }
+        #btn{
+            width: 250px;
+            height: 50px;
+            display: block;
+            font-size: 25px;
+            color: white;
+            background-color: #53b5aa;
+            cursor: pointer;
+            border: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-transform: capitalize;
+            position: absolute;
+            bottom: 37px;
+            transition: .4s;
+            
+        }
+        #btn:hover{
+            background-color: #076358;
+        }
+       
+        
+   
+
+ 
+
+    </style>
+</head>
+<body>
+    <div class="fp">
+        <div class="text">
+            <h1>shopping cart</h1>
+            <span id="spn">[<p>choose whatever you want</p>]</span>
+        </div>
+        <div class="mainpage">
+            <div id="box">
+                <section class="pro1">
+                    <div>
+                        <img src="img/51dx6RUA+BL._SL1000_.jpg" alt="">
+                        <span >remove product</span>
+                    </div> 
+                    <section class="fpro">
+                        <div>
+                            <h2>dining room couch</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias iusto maiores officia animi minima libero consectetur voluptatem alias vel!</p>
+                        </div>
+                        <div>
+                            <button class="negative">-</button>
+                            <h3>1</h3>
+                            <button class="positive">+</button>
+                            <h4>198.99</h4>
+                            <h2 id="p1">198.99$</h2>
+                        </div>
+                    </section>   
+                </section>
+                <section class="pro2">
+                    <div>
+                        <img src="img/Bedroom-Furniture.png" alt="">
+                        <span >remove product</span>
+                    </div>
+                    <section class="spro">
+                        <div>
+                            <h2>king size bed</h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores modi perspiciatis beatae delectus facilis praesentium repellat quibusdam totam quisquam maxime.</p>
+                        </div>
+                        <div>
+                            <button class="negative">-</button>
+                            <h3>1</h3>
+                            <button class="positive">+</button>
+                            <h4>650</h4>
+                            <h2 id="p2">650$</h2>
+                        </div>
+                    </section>
+                </section>
+                <section class="pro3">
+                    <div>
+                        <img src="img/3.webp" alt="">
+                        <span >remove product</span>
+                    </div>
+                    <section class="tpro">
+                        <div>
+                            <h2>working table</h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores modi perspiciatis beatae delectus facilis praesentium repellat quibusdam totam quisquam maxime.</p>
+                        </div>
+                        <div>
+                            <button class="negative">-</button>
+                            <h3>1</h3>
+                            <button class="positive">+</button>
+                            <h4 id="dal">289.99</h4>
+                            <h2 id="p3">289.99$</h2>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <h2 id="tot">taxes(5%)</h2>
+            </div>
+            <button id="btn">checkout</button>
+        </div>
+    </div>
+</body>
+<script>
+
+    document.getElementsByClassName('text')[0].addEventListener('mouseenter',function(){
+        document.querySelector('#spn>p').style.width='100%'
+        document.querySelector('#spn>p').style.overflow='visible'
+    })
+    document.getElementsByClassName('text')[0].addEventListener('mouseleave',function(){
+        document.querySelector('#spn>p').style.overflow='hidden'
+        document.querySelector('#spn>p').style.width='0'
+
+    })
+    let _spn= document.querySelectorAll('.mainpage>div>section>div>span')
+   
+    _spn[0].addEventListener('click',function(){
+        document.getElementsByClassName('pro1')[0].style.transform='translatex(-100%)'
+
+    })
+    _spn[1].addEventListener('click',function(){
+        document.getElementsByClassName('pro2')[0].style.transform='translatex(-100%)'
+
+    })
+    _spn[2].addEventListener('click',function(){
+        document.getElementsByClassName('pro3')[0].style.transform='translatex(-100%)'
+
+    })
+    let _positive =document.getElementsByClassName('positive')
+    let _negative =document.getElementsByClassName('negative')
+    let flag= 2
+    let pos=2
+    let add= 2
+    let save= document.getElementsByTagName('h4')[0].innerHTML
+    let save1= document.getElementsByTagName('h4')[1].innerHTML
+    let save2= document.getElementsByTagName('h4')[2].innerHTML
+    let num= Number(save)
+    let num2= Number(save1)
+    let num3= Number(save2)
+    let i=2
+    let k=2
+    let d=2
+    let sec
+    let den
+    let sik
+    _positive[0].addEventListener('click',function(){
+        document.querySelector('.fpro>div:nth-of-type(2)>h3').innerHTML=flag
+        flag++
+          sec=  document.getElementById('p1').innerHTML=num*i
+            i++
+
+    })
+    _positive[1].addEventListener('click',function(){
+        document.querySelector('.spro>div:nth-of-type(2)>h3').innerHTML=pos
+        pos++
+       den= document.getElementById('p2').innerHTML=num2*k
+            k++
+
+    })
+    _positive[2].addEventListener('click',function(){
+        document.querySelector('.tpro>div:nth-of-type(2)>h3').innerHTML=add
+        add++
+       sik= document.getElementById('p3').innerHTML=num3*d
+            d++
+
+    })
+    let min=198.99
+    let lal=650
+    let cal= 289.99
+    let v=1
+    let c=1
+    let r=1
+    _negative[0].addEventListener('click',function(){
+        temp = document.querySelector('.fpro>div:nth-of-type(2)>h3')
+        if(temp.innerHTML<=0){
+          
+        }else{
+        temp.innerHTML=flag-2
+        flag--
+        document.getElementById('p1').innerHTML=sec-(min*[v])+'$'
+        v++
+
+        }
+        
+
+    })
+    _negative[1].addEventListener('click',function(){
+        self = document.querySelector('.spro>div:nth-of-type(2)>h3')
+        if(self.innerHTML<=0){
+          
+        }else{
+        self.innerHTML=pos-2
+        pos--
+        document.getElementById('p2').innerHTML=den-(lal*[c])+'$'
+        c++
+
+        }
+        
+
+    })
+    _negative[2].addEventListener('click',function(){
+        main = document.querySelector('.tpro>div:nth-of-type(2)>h3')
+        if(main.innerHTML<=0){
+          
+        }else{
+        main.innerHTML=add-2
+        add--
+        document.getElementById('p3').innerHTML=sik-(cal*[r])+'$'
+        r++
+
+        }
+        
+
+    })
+    document.getElementById('btn').addEventListener('click',function(){
+        alert('your items purchased succesfully')
+    })
+
+
+
+
+
+
+</script>
+</html>
